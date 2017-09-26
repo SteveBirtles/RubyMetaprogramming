@@ -85,3 +85,19 @@ car = CarModel.new
 car.stereo_price = 4
 
 puts car.stereo_price
+
+puts car.respond_to?("stereo_price=")
+
+car.send("stereo_price=", 6)
+puts car.stereo_price
+
+class CarModel
+  remove_method "stereo_price="
+end
+
+
+puts car.class
+puts '-----------------------------------------------------'
+puts car.class.instance_methods()
+puts '-----------------------------------------------------'
+puts car.class.instance_variables()
